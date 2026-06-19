@@ -4,25 +4,25 @@ on:
   push:
     branches:
       - main
-
-pull_request:
- branches:
-  - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   validar:
     runs-on: ubuntu-latest
     steps:
-      - name: colonar repositorio
-      - uses: actions/checkout@v4
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
 
-      - name: Verificar frontend/index.html
-      - run: test -f frontend/index.html
+      - name: Verificar index.html
+        run: test -f index.html
 
-      - name: Verificar frontend/style.css
-      - run: test -f frontend/style.css
+      - name: Verificar css/style.css
+        run: test -f css/style.css
+
+      - name: Verificar js/script.js
+        run: test -f js/script.js
 
       - name: Verificar README.md
-      - run: test -f README.md
-      
-        
+        run: test -f README.md
