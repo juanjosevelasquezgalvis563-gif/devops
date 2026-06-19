@@ -1,14 +1,26 @@
-name:landing CI
+name: Verificar Proyecto
+
 on:
- push:
-  branches:
-  -main
+  push:
+    branches:
+      - main
 
 jobs:
-validar:
- runs-on: ubuntu-latest
- steps:
- - uses: actions/checkout@v4
+  validar:
+    runs-on: ubuntu-latest
 
- -name: verificar index.html
- run: test -f index.html
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Verificar index.html
+        run: test -f index.html
+
+      - name: Verificar style.css
+        run: test -f css/style.css
+
+      - name: Verificar script.js
+        run: test -f js/script.js
+
+      - name: Validación completada
+        run: echo "Proyecto validado correctamente"
